@@ -1,0 +1,334 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Udemy_RetriveCourseData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd2="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_dtCourses" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Udemy_RetrieveCoursesData" sap:VirtualizedContainerService.HintSize="710.8000000000001,2363.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:BuildDataTable DisplayName="Build Courses Data Table" sap:VirtualizedContainerService.HintSize="566.4,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt; &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt; &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;Courses&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt; &lt;xs:complexType&gt; &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt; &lt;xs:element name=&quot;Courses&quot;&gt; &lt;xs:complexType&gt; &lt;xs:sequence&gt; &lt;xs:element name=&quot;Title&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt; &lt;xs:element name=&quot;Author&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt; &lt;xs:element name=&quot;PriceText&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt; &lt;xs:element name=&quot;PriceValue&quot; type=&quot;xs:decimal&quot; minOccurs=&quot;0&quot; /&gt; &lt;/xs:sequence&gt; &lt;/xs:complexType&gt; &lt;/xs:element&gt; &lt;/xs:choice&gt; &lt;/xs:complexType&gt; &lt;/xs:element&gt; &lt;/xs:schema&gt; &lt;/NewDataSet&gt;">
+      <ui:BuildDataTable.DataTable>
+        <OutArgument x:TypeArguments="sd:DataTable">
+          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">out_dtCourses</CSharpReference>
+        </OutArgument>
+      </ui:BuildDataTable.DataTable>
+    </ui:BuildDataTable>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Udemy in Microsoft Edge" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="566.4,2248" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="d769ab43-43d6-4bae-8de4-3068450b7190" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="564.8,2052.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Int32" Default="1" Name="counter" />
+              <Variable x:TypeArguments="x:String" Name="titleText" />
+              <Variable x:TypeArguments="x:String" Name="authorText" />
+              <Variable x:TypeArguments="x:String" Name="priceText" />
+              <Variable x:TypeArguments="x:String" Name="priceClean" />
+              <Variable x:TypeArguments="x:Decimal" Name="priceValue" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While counter &lt;= 3" sap:VirtualizedContainerService.HintSize="531.2,1992.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+              <ui:InterruptibleWhile.Body>
+                <Sequence DisplayName="Open Next Course" sap:VirtualizedContainerService.HintSize="529.6,1869.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheckState DisplayName="Check if Course Link Exists" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="496,1809.6" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="d769ab43-43d6-4bae-8de4-3068450b7190" Timeout="5" Version="V5">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Open and Read Course" sap:VirtualizedContainerService.HintSize="494.4,1381.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Course Link" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="460.8,195.2" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d769ab43-43d6-4bae-8de4-3068450b7190" Version="V5">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="udemy.com/courses/search" DesignTimeRectangle="0, 0, 0, 0" ElementVisibilityArgument="Interactive" Guid="d3961ca2-a633-4195-9e0b-0d6865ff2283" ScopeSelectorArgument="&lt;html app='msedge.exe' url='*udemy.com*' matching:url='wildcard' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.FullSelectorArgument>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"&lt;webctrl tag='MAIN' /&gt;&lt;webctrl tag='A' class='ud-link-neutral ud-custom-focus-visible' idx='" + counter + "' /&gt;"</CSharpValue>
+                                </InArgument>
+                              </uix:TargetAnchorable.FullSelectorArgument>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NGetText DisplayName="TODO Indicate - Get Course Title" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="460.8,142.4" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="d769ab43-43d6-4bae-8de4-3068450b7190" Version="V5">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="udemy.com/course" DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" Guid="9453ba39-0e24-441a-9254-c3da78b701a9" ScopeSelectorArgument="&lt;html app='msedge.exe' url='*udemy.com*' matching:url='wildcard' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                          </uix:NGetText.Target>
+                          <uix:NGetText.TextString>
+                            <OutArgument x:TypeArguments="x:String">
+                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">titleText</CSharpReference>
+                            </OutArgument>
+                          </uix:NGetText.TextString>
+                        </uix:NGetText>
+                        <uix:NGetText DisplayName="TODO Indicate - Get Course Author" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="460.8,142.4" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="d769ab43-43d6-4bae-8de4-3068450b7190" Version="V5">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="udemy.com/course" DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' class='*instructor*' matching:class='wildcard' /&gt;" Guid="f14f62eb-1ca8-4bef-886b-41d7e837428b" ScopeSelectorArgument="&lt;html app='msedge.exe' url='*udemy.com*' matching:url='wildcard' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" Guid="d0c70107-2212-4dd6-b750-302e37080380" SearchSteps="Selector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                          <uix:NGetText.TextString>
+                            <OutArgument x:TypeArguments="x:String">
+                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">authorText</CSharpReference>
+                            </OutArgument>
+                          </uix:NGetText.TextString>
+                        </uix:NGetText>
+                        <uix:NGetText DisplayName="TODO Indicate - Get Course Price" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="460.8,142.4" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="d769ab43-43d6-4bae-8de4-3068450b7190" Version="V5">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="udemy.com/course" DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' class='*price*' matching:class='wildcard' /&gt;" Guid="ffff27ab-a039-4fb2-8006-3ffef2ce37d1" ScopeSelectorArgument="&lt;html app='msedge.exe' url='*udemy.com*' matching:url='wildcard' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" Guid="183ea8ae-a726-4165-a220-b11866a7680f" SearchSteps="Selector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                          <uix:NGetText.TextString>
+                            <OutArgument x:TypeArguments="x:String">
+                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">priceText</CSharpReference>
+                            </OutArgument>
+                          </uix:NGetText.TextString>
+                        </uix:NGetText>
+                        <If DisplayName="If Price Is Free" sap:VirtualizedContainerService.HintSize="460.8,335.2" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If.Condition>
+                            <InArgument x:TypeArguments="x:Boolean">
+                              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">(priceText ?? "").ToLower().Contains("free")</CSharpValue>
+                            </InArgument>
+                          </If.Condition>
+                          <If.Then>
+                            <Sequence DisplayName="Free" sap:VirtualizedContainerService.HintSize="384,84.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign x:TypeArguments="x:Decimal" DisplayName="priceValue = 0" sap:VirtualizedContainerService.HintSize="338,84.8" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Decimal">
+                                    <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">priceValue</CSharpReference>
+                                  </OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Decimal">
+                                    <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">0m</CSharpValue>
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Parse Numeric" sap:VirtualizedContainerService.HintSize="516.8,170.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign x:TypeArguments="x:String" DisplayName="Clean Price" sap:VirtualizedContainerService.HintSize="470.4,84.8" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">
+                                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">priceClean</CSharpReference>
+                                  </OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">System.Text.RegularExpressions.Regex.Replace((priceText ?? "").Trim(), "[^0-9.]", "").Replace(",", ".")</CSharpValue>
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign x:TypeArguments="x:Decimal" DisplayName="Parse Decimal" sap:VirtualizedContainerService.HintSize="470.4,84.8" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Decimal">
+                                    <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">priceValue</CSharpReference>
+                                  </OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Decimal">
+                                    <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">System.Text.RegularExpressions.Regex.IsMatch(priceClean, "^\\d+(\\.\\d+)?$") ? decimal.Parse(priceClean, System.Globalization.CultureInfo.InvariantCulture) : decimal.MaxValue</CSharpValue>
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Course Row" sap:VirtualizedContainerService.HintSize="460.8,188.8" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                          <ui:AddDataRow.ArrayRow>
+                            <InArgument x:TypeArguments="s:Object[]">
+                              <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">new object[] { (titleText ?? "").Trim(), (authorText ?? "").Trim(), (priceText ?? "").Trim(), priceValue }</CSharpValue>
+                            </InArgument>
+                          </ui:AddDataRow.ArrayRow>
+                          <ui:AddDataRow.DataTable>
+                            <InOutArgument x:TypeArguments="sd:DataTable">
+                              <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">out_dtCourses</CSharpReference>
+                            </InOutArgument>
+                          </ui:AddDataRow.DataTable>
+                        </ui:AddDataRow>
+                        <uix:NNavigateBrowser DisplayName="Go Back to Results" sap:VirtualizedContainerService.HintSize="460.8,90.4" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" ScopeIdentifier="d769ab43-43d6-4bae-8de4-3068450b7190" Version="V5" />
+                        <Assign x:TypeArguments="x:Int32" DisplayName="counter = counter + 1" sap:VirtualizedContainerService.HintSize="460.8,84.8" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">
+                              <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">counter</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">
+                              <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">counter + 1</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="No More Courses" sap:VirtualizedContainerService.HintSize="384,84.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign x:TypeArguments="x:Int32" DisplayName="Stop Loop" sap:VirtualizedContainerService.HintSize="338,84.8" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">
+                              <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">counter</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">
+                              <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">4</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="udemy.com/courses/search" DesignTimeRectangle="0, 0, 0, 0" ElementVisibilityArgument="Interactive" Guid="a1059512-65cf-4dfd-83b2-d3cec6b27deb" ScopeSelectorArgument="&lt;html app='msedge.exe' url='*udemy.com*' matching:url='wildcard' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.FullSelectorArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"&lt;webctrl tag='MAIN' /&gt;&lt;webctrl tag='A' class='ud-link-neutral ud-custom-focus-visible' idx='" + counter + "' /&gt;"</CSharpValue>
+                          </InArgument>
+                        </uix:TargetAnchorable.FullSelectorArgument>
+                      </uix:TargetAnchorable>
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                </Sequence>
+              </ui:InterruptibleWhile.Body>
+              <ui:InterruptibleWhile.Condition>
+                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">counter &lt;= 3</CSharpValue>
+              </ui:InterruptibleWhile.Condition>
+            </ui:InterruptibleWhile>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.CloseMode>
+        <InArgument x:TypeArguments="uix:NAppCloseMode">
+          <CSharpValue x:TypeArguments="uix:NAppCloseMode" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">UiPath.UIAutomationNext.Enums.NAppCloseMode.Never</CSharpValue>
+        </InArgument>
+      </uix:NApplicationCard.CloseMode>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.OpenMode>
+        <InArgument x:TypeArguments="uix:NAppOpenMode">
+          <CSharpValue x:TypeArguments="uix:NAppOpenMode" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen</CSharpValue>
+        </InArgument>
+      </uix:NApplicationCard.OpenMode>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" ContentHash="ngxMJj3_wEGPtKUruWfMgA" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAADKklEQVRYR82Wz2sTURDHc1NBexMUb6JeRKE0b0Oth6LQq6e21n/BkyKIJxVBQTwJ/qqWUvel1dCDWHsT6g9MtBSrqCAePLQUm/TXbJJtm6TJk3ndbvLmvXbXSqpf+MCyM/Nmdt+viURCisfmGuyo0xVn8JAzGLUZZDiDIuI9j3IG3fGoc7qnZWYXjd+0+qzsIW5BD2fgcgYiJK4dhUfxmHOQjhdaiebJHZzBLc6gZEgQliK34GZvq9hOx99QWDln8MUwoEJ/yyr0vYGU3eTupXmMGoguNHpzSgdRGDnvitxkWbjTZZG8vKjZDUz2x+aP0nyK8MuDkj9vz4qpZElQTY+VxPCZnOZPi+hl+T00rxTOE2fwyRAkSZx0xPcnBVFZoamrqpSF+DlcFINtjhZfwxiuL5o/4i046izpPwaikK1oyX4MFiT4XCv0xRg6TpWFq0pyudU2WO0DLaAkwN/9oqv6u+W0vFOnBWPoOD4W5JSp8Pa57kgKCFpwawszsAAGwmZwdzV5bK4h6JDB3zl+ZylwUAR90HfjKZDk5YmJx6vBuFV0RryznRq2BJvBA1z9eIloxlriMRAvz+Z9Bo7r2wzf1fpgDPUxkMICZgwGdXCyC56dymo++K5WYdYLZ5DGAgoGg0K9CrAZLP8XBfzzKQhchHUsQC7CboNBoW4FWHA/gj2cZiDUq4C4Be2RxOHMTjwWqbEW7HpqNdShFzDUmVN8whzFmFveB9hAGhwUSkvV6zh5Rb+QUtcWfXsxX9HsBrr929DrAbHFpk4+6Y/V69bNlOUVvGYbas+KxZlqgb8+lLR4QiHOYL9fAAq7V4Ojz9tLrp8AVS4KkR4vScqkQ3t1wdXiCTeU5CivJUsZnH2wJQvSt8fLWhwhefuA2EbzS2GXwhlMGIJ83lx0xezXFaUNw+fM5xUxci6v+as4U33Ns/toXkXYOmP3qgerJE44cjfg/D9t1W9HAxO8af4IzWdUojG3mzN4bRhksyTXbcfXE84Tdq9BZ0QAeNFdX3fOwwgrxwbyDwvJY7ejbbW/kXdiduL5zS14jzeZ94VIWr6Lwj2bQYd/woXQb+3suW1Hqk6eAAAAAElFTkSuQmCC" Reference="cbPOONPyaUWN-hr1gMdimw/5bpvBYa4602SDNblqNqiOQ" Selector="&lt;html app='msedge.exe' htmlwindowname='usi_referrer_url=direct traffic=1783841102536;usi_last_url_1=https://www.udemy.com/=1783841102536;usi_pv_count=2=1783841102536;' title='Udemy: Online Courses for Skills, Careers &amp;amp; AI' /&gt;" Url="https://www.udemy.com/" Version="V3" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
