@@ -286,5 +286,64 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
+    <ui:GetRobotCredential DisplayName="Get SMTP Credential" sap:VirtualizedContainerService.HintSize="434,190.4" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" CacheStrategy="None">
+      <ui:GetRobotCredential.AssetName>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">"SMTP_Cred"</CSharpValue>
+        </InArgument>
+      </ui:GetRobotCredential.AssetName>
+      <ui:GetRobotCredential.Username>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">str_SMTPUser</CSharpReference>
+        </OutArgument>
+      </ui:GetRobotCredential.Username>
+      <ui:GetRobotCredential.Password>
+        <OutArgument x:TypeArguments="ss:SecureString">
+          <CSharpReference x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">sec_SMTPPass</CSharpReference>
+        </OutArgument>
+      </ui:GetRobotCredential.Password>
+    </ui:GetRobotCredential>
+    <ui:SendMail DisplayName="Send Report Email (SMTP)" sap:VirtualizedContainerService.HintSize="434,190.4" sap2010:WorkflowViewState.IdRef="SendMail_1" Action="Forward" ContinueOnError="True" EnableSSL="True" IsBodyHtml="False" SecureConnection="Auto">
+      <ui:SendMail.Server>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">str_SMTPServer</CSharpValue>
+        </InArgument>
+      </ui:SendMail.Server>
+      <ui:SendMail.Port>
+        <InArgument x:TypeArguments="x:Int32">
+          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">int_SMTPPort</CSharpValue>
+        </InArgument>
+      </ui:SendMail.Port>
+      <ui:SendMail.Email>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">str_SMTPUser</CSharpValue>
+        </InArgument>
+      </ui:SendMail.Email>
+      <ui:SendMail.SecurePassword>
+        <InArgument x:TypeArguments="ss:SecureString">
+          <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">sec_SMTPPass</CSharpValue>
+        </InArgument>
+      </ui:SendMail.SecurePassword>
+      <ui:SendMail.Name>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">str_MyName</CSharpValue>
+        </InArgument>
+      </ui:SendMail.Name>
+      <ui:SendMail.To>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">str_SendToEmail</CSharpValue>
+        </InArgument>
+      </ui:SendMail.To>
+      <ui:SendMail.Subject>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">"Employee Registration Report"</CSharpValue>
+        </InArgument>
+      </ui:SendMail.Subject>
+      <ui:SendMail.Body>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">"Employee Registration Process Completed" + Environment.NewLine + "Total Employees: " + int_Total + Environment.NewLine + "Successful: " + int_Successfull + Environment.NewLine + "Failed: " + int_Failed + Environment.NewLine + Environment.NewLine + "Regards," + Environment.NewLine + str_MyName</CSharpValue>
+        </InArgument>
+      </ui:SendMail.Body>
+    </ui:SendMail>
   </Sequence>
 </Activity>
