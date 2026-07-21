@@ -1,0 +1,5 @@
+﻿Employee Registration Report
+Generated: 2026-07-21 20:18:54
+Total Employees: 25
+Successful: 17
+Failed: 8
